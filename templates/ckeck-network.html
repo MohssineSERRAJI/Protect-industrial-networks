@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+{% block content %}
+<!-- Feature 49  -->
+    <!-- ============================================================== -->
+    <div class="spacer feature42 bg-success-gradiant">
+        <div class="container">
+            <div class="row justify-content-center wrap-feature49-box">
+                <div class="col-md-10 col-lg-7 text-center" data-aos="fade-up">
+                    <h2 class="title text-white">Your Industrial Network</h2>
+                    <h6 class="subtitle text-white op-7 m-b-20">You can relay on our amazing features list
+                        and also our customer services will be great experience for you without doubt and in
+                        no-time.</h6>
+                    <h6 class="subtitle text-white op-7 m-b-20">An exemplary file to do the test 
+                        <a href="/uploads/exemplary_file.csv">download</a>
+                    </h6>
+                    <form method="post" enctype="multipart/form-data" action = "http://localhost:5000/check_network">
+                    <div class="ml-auto m-t-10 m-b-10">
+                        <label class="btn btn-outline-light btn-md" style="width: 250px">
+                            Choose a file <input type="file" name="file" style="display: none;" required>
+                        </label>
+                    </div>
+                    <div class="ml-auto m-t-10 m-b-10 btn-arrow" >
+                        <button class="btn btn-outline-light btn-md" type="submit" style="width: 250px">
+                            <span>Start checking <i class="ti-arrow-right"></i></span>
+                        </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Feature 49  -->
+
+{% endblock %}

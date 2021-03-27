@@ -1,0 +1,85 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="row w-100">
+    <canvas class="m-auto" id="myChart" width="600" height="600"></canvas>
+</div>
+<script>
+    nb_attacks = {{ nbr_attacks }} 
+    values = {{ values|map('int')|list|tojson }}
+    labels = {{ labels|map('string')|list|tojson }}
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+        label: '# of Attacks',
+        data: values,
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255,99,132,1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Your Industrial Network Was Attacked '+ nb_attacks +' Time'
+        },
+        responsive: false,
+        scales: {
+        xAxes: [{
+            ticks: {
+            maxRotation: 90,
+            minRotation: 80
+            },
+            gridLines: {
+            offsetGridLines: true // à rajouter
+            }
+        },
+        {
+            position: "top",
+            ticks: {
+            maxRotation: 90,
+            minRotation: 80
+            },
+            gridLines: {
+            offsetGridLines: true // et matcher pareil ici
+            }
+        }],
+        yAxes: [{
+            ticks: {
+            beginAtZero: true
+            }
+        }]
+        }
+    }
+    });
+
+</script>
+{% endblock %}
